@@ -8,12 +8,7 @@ var http = require('http');
 var indexRouter = require('./routes/index');
 var personaRouter = require('./routes/api/persona');
 var usuarioRouter = require('./routes/api/usuario');
-var productoRouter = require('./routes/api/productos');
-var mensajeRouter = require('./routes/api/mensajes');
-var citasRouter = require('./routes/api/citas');
-var favoritoRouter = require('./routes/api/favorito');
-var seguidosRouter = require('./routes/api/seguidos');
-var mensajeRouter = require('./routes/api/mensajes');
+
 
 var app = express();
 
@@ -30,12 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/persona', personaRouter);
 app.use('/usuario', usuarioRouter);
-app.use('/producto', productoRouter);
-app.use('/mensajes', mensajeRouter);
-app.use('/citas', citasRouter);
-app.use('/favorito', favoritoRouter);
-app.use('/seguidos', seguidosRouter);
-app.use('/mensaje',mensajeRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -53,12 +43,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var server = http.createServer(app);
+/*var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 var chatIoMethods = require('./routes/api/chat');
 
 io.on('connection',chatIoMethods);
-
+*/
 
 const port = 8000;
 server.listen(port, () => {
